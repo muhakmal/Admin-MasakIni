@@ -1,4 +1,4 @@
-package com.baskom.masakini;
+package com.baskom.miadmin;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.baskom.masakini;
+package com.baskom.miadmin;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -6,14 +6,14 @@ import java.io.Serializable;
  * Created by akmalmuhamad on 01/01/18.
  */
 
-public class DalamProses1{
+public class DalamProses {
     private String nomorPesanan;
     private String namaBahanMasakan;
     private String jumlahPesanan;
     private String alamatPengiriman;
     private String harga;
 
-    public DalamProses1(String nomorPesanan, String namaBahanMasakan, String jumlahPesanan, String alamatPengiriman, String harga) {
+    public DalamProses(String nomorPesanan, String namaBahanMasakan, String jumlahPesanan, String alamatPengiriman, String harga) {
         this.nomorPesanan = nomorPesanan;
         this.namaBahanMasakan = namaBahanMasakan;
         this.jumlahPesanan = jumlahPesanan;

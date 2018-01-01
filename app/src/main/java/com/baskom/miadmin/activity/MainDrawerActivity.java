@@ -1,8 +1,5 @@
-package com.baskom.masakini.activity;
+package com.baskom.miadmin.activity;
 
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -14,33 +11,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.baskom.masakini.R;
-import com.baskom.masakini.adapter.MainViewPagerAdapter;
-import com.baskom.masakini.request.MasukRequest;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baskom.miadmin.R;
+import com.baskom.miadmin.adapter.MainViewPagerAdapter;
 
 
 public class MainDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static final String DRAWER_REQUEST = "http://masakini.xyz/masakiniapi/Infoakun.php?email=";
-    String email;
-
     private ViewPager viewPager;
     private DrawerLayout drawer;
     private TabLayout tabLayout;
-    private String[] pageTitle = {"RESEP", "VIDEO"};
+    private String[] pageTitle = {"DALAM PROSES", "STATUS PESANAN"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,35 +47,6 @@ public class MainDrawerActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        View header = navigationView.getHeaderView(0);
-
-        final TextView namaDrawer = header.findViewById(R.id.tv_selamat_datang_nama_side_drawer);
-
-        email = MasukRequest.getEmail();
-
-        Response.Listener<String> responseListener = new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    namaDrawer.setText(jsonObject.getString("name"));
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        };
-        Response.ErrorListener errorListener = new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                namaDrawer.setText("NULL");
-            }
-        };
-
-        RequestQueue queue = Volley.newRequestQueue(this);
-        StringRequest request = new StringRequest(Request.Method.GET, DRAWER_REQUEST + email, responseListener, errorListener);
-        queue.add(request);
 
         //set viewpager adapter
         MainViewPagerAdapter pagerAdapter = new MainViewPagerAdapter(getSupportFragmentManager());
@@ -120,44 +73,19 @@ public class MainDrawerActivity extends AppCompatActivity
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.drawer, menu);
-        MenuItem item = menu.findItem(R.id.cart);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.cart) {
-            Intent intent = new Intent(MainDrawerActivity.this, ItemKeranjangActivity.class);
-            startActivity(intent);
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     @SuppressWarnings("masih kosong")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.nav_beranda) {
+        if (id == R.id.nav_daftar_pesanan) {
             viewPager.setCurrentItem(0);
-        } else if (id == R.id.nav_info_akun) {
-            Intent infoAkun = new Intent(MainDrawerActivity.this, InfoAkunActivity.class);
-            startActivity(infoAkun);
-        } else if (id == R.id.nav_riwayat_order) {
-            Intent riwayatOrder = new Intent(MainDrawerActivity.this, RiwayatOrderActivity.class);
-            startActivity(riwayatOrder);
-        } else if (id == R.id.nav_kontak_kami) {
-            try {
-                Intent emailIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + "kontak@masakini.xyz"));
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Kontak MasakIni | ");
-                startActivity(emailIntent);
-            } catch (ActivityNotFoundException e) {
-                //nothing
-            }
+        } else if (id == R.id.nav_kelola_resep) {
+
+        } else if (id == R.id.nav_kelola_video) {
+
+        } else if (id == R.id.nav_keluar) {
+
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

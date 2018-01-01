@@ -3,47 +3,50 @@ package com.baskom.miadmin.adapter;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.baskom.miadmin.R;
-import com.baskom.miadmin.model.Resep;
-import com.bumptech.glide.Glide;
+import com.baskom.miadmin.model.DalamProses;
 
 /**
  * Created by Castor on 12/5/2017.
  */
 
-public class ResepCardViewHolder extends RecyclerView.ViewHolder {
-    private TextView judulResep;
-    private TextView subJudulResep;
-    private TextView tingkatKesulitan;
-    private TextView untukBerapaOrang;
-    private TextView waktuMemasak;
-    private ImageView resepImage;
+public class DalamProsesCardViewHolder extends RecyclerView.ViewHolder {
+    private TextView nomorPesanan;
+    private TextView namaBahanMasakan;
+    private TextView jumlahPesanan;
+    private TextView alamatPengiriman;
+    private TextView harga;
+
     private CardView cardView;
 
-    public ResepCardViewHolder(View itemView) {
+    private Button tolakPesanan;
+    private Button terimaPesanan;
+
+    public DalamProsesCardViewHolder(View itemView) {
         super(itemView);
-        judulResep = itemView.findViewById(R.id.judul_resep_item_keranjang);
-        subJudulResep = itemView.findViewById(R.id.cardView_deksripsiResep);
-        tingkatKesulitan = itemView.findViewById(R.id.cardView_tingkat_kesulitan);
-        untukBerapaOrang = itemView.findViewById(R.id.cardView_untukBerapaOrang);
-        waktuMemasak = itemView.findViewById(R.id.cardView_waktuMemasak);
-        resepImage = itemView.findViewById(R.id.image_item_keranjang);
-        cardView = itemView.findViewById(R.id.card_item_keranjang);
+        nomorPesanan = itemView.findViewById(R.id.tv_card_noorder);
+        namaBahanMasakan = itemView.findViewById(R.id.tv_card_namaBahanMasakan);
+        jumlahPesanan = itemView.findViewById(R.id.tv_card_jumlahPaket);
+        alamatPengiriman = itemView.findViewById(R.id.tv_card_alamatPengiriman);
+        harga = itemView.findViewById(R.id.tv_card_harga);
+
+        cardView = itemView.findViewById(R.id.card_view_dalam_proses);
+
+        tolakPesanan = itemView.findViewById(R.id.btn_tolak_pesanan);
+        terimaPesanan = itemView.findViewById(R.id.btn_terima_pesanan);
     }
 
-    public void bindData(final Resep resep) {
-        Glide.with(cardView.getContext())
-                .load(resep.getResepImage())
-                .into(resepImage);
-        judulResep.setText(resep.getJudulResep());
-        subJudulResep.setText(resep.getSubJudulResep());
-        tingkatKesulitan.setText(resep.getTingkatKesulitan());
-        untukBerapaOrang.setText(resep.getUntukBerapaOrang());
-        waktuMemasak.setText(resep.getWaktuMemasak());
+    public void bindData(final DalamProses dalamProses) {
+        nomorPesanan.setText(dalamProses.getNomorPesanan());
+        namaBahanMasakan.setText(dalamProses.getNamaBahanMasakan());
+        jumlahPesanan.setText(dalamProses.getJumlahPesanan());
+        alamatPengiriman.setText(dalamProses.getAlamatPengiriman());
+        harga.setText(dalamProses.getHarga());
     }
+
 
 
 }

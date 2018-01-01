@@ -1,4 +1,4 @@
-package com.baskom.masakini.activity;
+package com.baskom.miadmin.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
@@ -13,7 +13,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = new Intent(this, WelcomeActivity.class);
+        Intent intent = new Intent(this, MainDrawerActivity.class);
         startActivity(intent);
         finish();
     }

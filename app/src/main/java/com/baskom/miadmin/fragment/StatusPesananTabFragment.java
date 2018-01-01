@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.baskom.miadmin.R;
-import com.baskom.miadmin.adapter.VideoCardAdapter;
-import com.baskom.miadmin.model.Video;
+import com.baskom.miadmin.adapter.StatusPesananCardAdapter;
+import com.baskom.miadmin.model.StatusPesanan;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,15 +19,15 @@ import java.util.List;
  * Created by akmalmuhamad on 20/11/17.
  */
 
-public class VideoTabFragment extends android.support.v4.app.Fragment {
+public class StatusPesananTabFragment extends android.support.v4.app.Fragment {
 
     RecyclerView recyclerView;
-    VideoCardAdapter adapter;
-    private List<Video> videoList;
+    StatusPesananCardAdapter adapter;
+    private List<StatusPesanan> statusPesananList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_video, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_status_pesanan, container, false);
 
         recyclerView = rootView.findViewById(R.id.recycler_view_video);
         recyclerView.setNestedScrollingEnabled(false);
@@ -39,45 +39,45 @@ public class VideoTabFragment extends android.support.v4.app.Fragment {
     }
 
     public void getVideoList() {
-        videoList = new ArrayList<>();
+        statusPesananList = new ArrayList<>();
 
-        Video video = new Video(
+        StatusPesanan statusPesanan = new StatusPesanan(
                 "90's Cake - MasakTV",
                 "http://masakini.xyz/masakiniapi/video_thumbnail/90'scake_video_thumbnail.jpg",
                 "https://youtu.be/ec3As5G7Tm0?list=PLoaIzBdYD0wYxJ9F5UaqihIb2cszbuUbu"
         );
-        videoList.add(video);
+        statusPesananList.add(statusPesanan);
 
-        Video video1 = new Video(
+        StatusPesanan statusPesanan1 = new StatusPesanan(
                 "Ayam Goreng Saos Padang - MasakTV",
                 "http://masakini.xyz/masakiniapi/video_thumbnail/ayamgorengpadang_video_thumbnail.jpg",
                 "https://youtu.be/R5xg9jB3njo?list=PLoaIzBdYD0wYxJ9F5UaqihIb2cszbuUbu"
 
         );
-        videoList.add(video1);
+        statusPesananList.add(statusPesanan1);
 
-        Video video2 = new Video(
+        StatusPesanan statusPesanan2 = new StatusPesanan(
                 "Gulai Balungan - MasakTV",
                 "http://masakini.xyz/masakiniapi/video_thumbnail/gulaibalungan__video_thumbnail.jpg",
                 "https://youtu.be/q4e1ZHMaLQg?list=PLoaIzBdYD0wYxJ9F5UaqihIb2cszbuUbu"
         );
-        videoList.add(video2);
+        statusPesananList.add(statusPesanan2);
 
-        Video video3 = new Video(
+        StatusPesanan statusPesanan3 = new StatusPesanan(
                 "Gurame Saos Lemon - MasakTV",
                 "http://masakini.xyz/masakiniapi/video_thumbnail/guramelemon_video_thumbnail.jpg",
                 "https://youtu.be/KtcazjQdtbA?list=PLoaIzBdYD0wYxJ9F5UaqihIb2cszbuUbu"
         );
-        videoList.add(video3);
+        statusPesananList.add(statusPesanan3);
 
-        Video video4 = new Video(
+        StatusPesanan statusPesanan4 = new StatusPesanan(
                 "Nasi Bakar Bumbu Jontor",
                 "http://masakini.xyz/masakiniapi/video_thumbnail/nasbakar_video_thumbnail.jpg",
                 "https://youtu.be/dAa6bHXAMcw?list=PLoaIzBdYD0wYxJ9F5UaqihIb2cszbuUbu"
         );
-        videoList.add(video4);
+        statusPesananList.add(statusPesanan4);
 
-        adapter = new VideoCardAdapter(videoList);
+        adapter = new StatusPesananCardAdapter(statusPesananList);
         recyclerView.setAdapter(adapter);
     }
 }

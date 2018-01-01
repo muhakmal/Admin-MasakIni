@@ -38,19 +38,9 @@
             android:layout_alignBaseline="@+id/a"
             android:layout_marginLeft="5dp"
             android:layout_toRightOf="@+id/a"
-            android:text="Alvina Aulia"
+            android:text="Admin"
             android:textColor="@color/baseWhite"
             android:textStyle="bold" />
-
-        <TextView
-            android:textStyle="italic"
-
-            android:id="@+id/textView"
-            android:layout_below="@+id/a"
-            android:layout_width="wrap_content"
-            android:textColor="@color/baseWhite"
-            android:layout_height="wrap_content"
-            android:text="Mau masak apa hari ini?" />
 
 
     </RelativeLayout>

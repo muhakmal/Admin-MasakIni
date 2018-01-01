@@ -9,21 +9,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.baskom.miadmin.R;
-import com.baskom.miadmin.model.Video;
+import com.baskom.miadmin.model.StatusPesanan;
 import com.bumptech.glide.Glide;
 
 /**
  * Created by akmalmuhamad on 27/12/17.
  */
 
-public class VideoCardViewHolder extends RecyclerView.ViewHolder{
+public class StatusPesananCardViewHolder extends RecyclerView.ViewHolder{
     private ImageView videoThumbnail;
     private TextView judulVideo;
     private String URL_VIDEO;
 
     private CardView cardViewVideo;
 
-    public VideoCardViewHolder(View itemView) {
+    public StatusPesananCardViewHolder(View itemView) {
         super(itemView);
         videoThumbnail= itemView.findViewById(R.id.cardView_main_image_video);
         judulVideo = itemView.findViewById(R.id.cardView_judul_video);
@@ -32,14 +32,14 @@ public class VideoCardViewHolder extends RecyclerView.ViewHolder{
 
     }
 
-    public void bindData(final Video video){
+    public void bindData(final StatusPesanan statusPesanan){
 
-        final Uri uri = Uri.parse(video.getVideoURL());
+        final Uri uri = Uri.parse(statusPesanan.getVideoURL());
 
         Glide.with(cardViewVideo.getContext())
-                .load(video.getVideoThumbnail())
+                .load(statusPesanan.getVideoThumbnail())
                 .into(videoThumbnail);
-        judulVideo.setText(video.getJudulVideo());
+        judulVideo.setText(statusPesanan.getJudulVideo());
 
         cardViewVideo.setOnClickListener(new View.OnClickListener() {
             @Override

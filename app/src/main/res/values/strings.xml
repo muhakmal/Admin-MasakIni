@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MasakIni</string>
+    <string name="app_name">MI Admin</string>
     <string name="buat_akun">Buat Akun</string>
     <string name="belum_punya_akun_daftar">Belum Punya Akun? Daftar</string>
     <string name="title_activity_drawer">MasakIni</string>

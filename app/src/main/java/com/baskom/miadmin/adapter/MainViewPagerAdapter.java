@@ -1,11 +1,11 @@
-package com.baskom.masakini.adapter;
+package com.baskom.miadmin.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.baskom.masakini.fragment.ResepTabFragment;
-import com.baskom.masakini.fragment.VideoTabFragment;
+import com.baskom.miadmin.fragment.DalamProsesTabFragment;
+import com.baskom.miadmin.fragment.StatusPesananTabFragment;
 
 /**
  * Created by akmalmuhamad on 20/11/17.
@@ -19,8 +19,8 @@ public class MainViewPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if (position == 0) {
-            return new ResepTabFragment();
-        } else return new VideoTabFragment();
+            return new DalamProsesTabFragment();
+        } else return new StatusPesananTabFragment();
     }
 
 

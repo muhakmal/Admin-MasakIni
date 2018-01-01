@@ -5,27 +5,27 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_beranda"
-            android:icon="@drawable/ic_home"
-            android:title="Beranda"
+            android:id="@+id/nav_daftar_pesanan"
+            android:icon="@drawable/ic_daftar_pesanan"
+            android:title="Daftar Pesanan"
             />
         <item
-            android:id="@+id/nav_info_akun"
-            android:icon="@drawable/ic_account_circle"
-            android:title="Info Akun" />
+            android:id="@+id/nav_kelola_resep"
+            android:icon="@drawable/ic_kelola_resep"
+            android:title="Kelola Resep" />
         <item
-            android:id="@+id/nav_riwayat_order"
-            android:icon="@drawable/ic_history"
+            android:id="@+id/nav_kelola_video"
+            android:icon="@drawable/ic_kelola_video"
             android:title="Riwayat Order" />
 
     </group>
 
-    <item android:title="Bantuan">
+    <item android:title="Akun">
         <menu>
             <item
-                android:id="@+id/nav_kontak_kami"
-                android:icon="@drawable/ic_send"
-                android:title="Kontak Kami" />
+                android:id="@+id/nav_keluar"
+                android:icon="@drawable/ic_keluar"
+                android:title="Keluar" />
         </menu>
     </item>
 

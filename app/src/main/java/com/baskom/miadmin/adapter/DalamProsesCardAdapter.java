@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.baskom.miadmin.R;
-import com.baskom.miadmin.model.Resep;
+import com.baskom.miadmin.model.DalamProses;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,36 +15,36 @@ import java.util.List;
  * Created by akmalmuhamad on 23/11/17.
  */
 
-public class ResepCardAdapter extends RecyclerView.Adapter{
+public class DalamProsesCardAdapter extends RecyclerView.Adapter{
 
-    private List<Resep> resepList = new ArrayList<>();
+    private List<DalamProses> dalamProsesList = new ArrayList<>();
 
-    public ResepCardAdapter(List<Resep> resepList) {
-        this.resepList.addAll(resepList);
+    public DalamProsesCardAdapter(List<DalamProses> dalamProsesList) {
+        this.dalamProsesList.addAll(dalamProsesList);
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //inflate new view when creating new items in recyclerview
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.card_resep, parent, false);
-        return new ResepCardViewHolder(itemView);
+                .inflate(R.layout.card_dalam_proses, parent, false);
+        return new DalamProsesCardViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
-        if(holder.getItemViewType() == R.layout.card_resep){
-            ((ResepCardViewHolder) holder).bindData(resepList.get(position));
+        if(holder.getItemViewType() == R.layout.card_dalam_proses){
+            ((DalamProsesCardViewHolder) holder).bindData(dalamProsesList.get(position));
         }
     }
 
     @Override
     public int getItemCount() {
-        return resepList.size();
+        return dalamProsesList.size();
     }
 
     @Override
     public int getItemViewType(int position) {
-        return R.layout.card_resep;
+        return R.layout.card_dalam_proses;
     }
 }
