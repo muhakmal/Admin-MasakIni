@@ -12,14 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="@dimen/card_margin"
         app:cardElevation="5dp"
         app:cardUseCompatPadding="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="0dp">
+            android:layout_height="wrap_content">
 
             <RelativeLayout
                 android:id="@+id/relativenoorder"
@@ -52,7 +50,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_below="@id/nopesanan"
-                    android:background="@color/nliveo_black_light"/>
+                    android:background="@color/divider"/>
 
                 <TextView
                     android:id="@+id/bahanmasakan"
@@ -149,7 +147,7 @@
                             android:id="@+id/btn_tolak_pesanan"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@color/nliveo_red_alpha_colorPrimaryDark"
+                            android:background="@color/nliveo_red_colorPrimaryDark"
                             android:text="TOLAK PESANAN"
                             android:textColor="@color/nliveo_white"
                             android:textStyle="bold" />
@@ -165,7 +163,7 @@
                             android:id="@+id/btn_terima_pesanan"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@color/nliveo_green_colorAccent"
+                            android:background="@color/nliveo_green_colorPrimary"
                             android:text="TERIMA PESANAN"
                             android:textColor="@color/nliveo_white"
                             android:textStyle="bold" />
