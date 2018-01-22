@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by akmalmuhamad on 01/01/18.
  */
 
-public class DalamProses {
+public class DalamProses implements Serializable{
     private String nomorPesanan;
     private String namaBahanMasakan;
     private String jumlahPesanan;

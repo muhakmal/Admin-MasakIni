@@ -6,44 +6,44 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.baskom.miadmin.R;
-import com.baskom.miadmin.model.DalamProses;
+import com.baskom.miadmin.model.KelolaResep;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by akmalmuhamad on 23/11/17.
+ * Created by akmalmuhamad on 19/01/18.
  */
 
-public class DalamProsesCardAdapter extends RecyclerView.Adapter {
-    private List<DalamProses> dalamProsesList = new ArrayList<>();
+public class KelolaResepCardAdapter extends RecyclerView.Adapter {
+    private List<KelolaResep> kelolaResepList = new ArrayList<>();
 
-    public DalamProsesCardAdapter(List<DalamProses> dalamProsesList) {
-        this.dalamProsesList.addAll(dalamProsesList);
+    public KelolaResepCardAdapter(List<KelolaResep> kelolaResepList) {
+        this.kelolaResepList.addAll(kelolaResepList);
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //inflate new view when creating new items in recyclerview
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.card_dalam_proses, parent, false);
-        return new DalamProsesCardViewHolder(itemView);
+                .inflate(R.layout.card_kelola_resep, parent, false);
+        return new KelolaResepCardViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
-        if (holder.getItemViewType() == R.layout.card_dalam_proses) {
-            ((DalamProsesCardViewHolder) holder).bindData(dalamProsesList.get(position));
+        if (holder.getItemViewType() == R.layout.card_kelola_resep) {
+            ((KelolaResepCardViewHolder) holder).bindData(kelolaResepList.get(position));
         }
     }
 
     @Override
     public int getItemCount() {
-        return dalamProsesList.size();
+        return kelolaResepList.size();
     }
 
     @Override
     public int getItemViewType(int position) {
-        return R.layout.card_dalam_proses;
+        return R.layout.card_kelola_resep;
     }
 }
