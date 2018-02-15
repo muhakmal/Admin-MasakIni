@@ -1,6 +1,5 @@
 package com.baskom.miadmin.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -16,7 +15,9 @@ import android.view.MenuItem;
 import com.baskom.miadmin.R;
 import com.baskom.miadmin.adapter.MainViewPagerAdapter;
 
-public class MainDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+public class MainDrawerActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     private ViewPager viewPager;
     private DrawerLayout drawer;
@@ -29,21 +30,30 @@ public class MainDrawerActivity extends AppCompatActivity implements NavigationV
         setContentView(R.layout.drawer_activity);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        //number of view pager pages
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         for (int i = 0; i < 2; i++) {
             tabLayout.addTab(tabLayout.newTab().setText(pageTitle[i]));
         }
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //set viewpager adapter
         MainViewPagerAdapter pagerAdapter = new MainViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
+        //change tab selection when swipe viewpager
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        //change view pager page when tab selected
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -67,23 +77,20 @@ public class MainDrawerActivity extends AppCompatActivity implements NavigationV
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
+
         if (id == R.id.nav_daftar_pesanan) {
             viewPager.setCurrentItem(0);
         } else if (id == R.id.nav_kelola_resep) {
-            Intent intent = new Intent(this, KelolaResepActivity.class);
-            startActivity(intent);
+
         } else if (id == R.id.nav_kelola_video) {
-            Intent intent = new Intent(this, KelolaVideoActivity.class);
-            startActivity(intent);
+
         } else if (id == R.id.nav_keluar) {
-            Intent intentKeluar = new Intent(this, MasukAdminActivity.class);
-            intentKeluar.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intentKeluar);
-            finish();
+
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+
     }
 
     @Override
@@ -95,4 +102,7 @@ public class MainDrawerActivity extends AppCompatActivity implements NavigationV
             super.onBackPressed();
         }
     }
+
+
 }
+

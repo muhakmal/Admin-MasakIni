@@ -1,51 +1,42 @@
 package com.baskom.miadmin.model;
 
 /**
- * Created by akmalmuhamad on 01/01/18.
+ * Created by akmalmuhamad on 29/11/17.
  */
 
 public class StatusPesanan {
-    private String nomorPesanan;
-    private String namaBahan;
-    private String jumlahBahan;
-    private String statusPesanan;
+    private String judulVideo;
+    private String videoThumbnail;
+    private String videoURL;
 
-    public StatusPesanan(String nomorPesanan, String namaBahan, String jumlahBahan, String statusPesanan) {
-        this.nomorPesanan = nomorPesanan;
-        this.namaBahan = namaBahan;
-        this.jumlahBahan = jumlahBahan;
-        this.statusPesanan = statusPesanan;
+    public String getJudulVideo() {
+        return judulVideo;
     }
 
-    public String getNomorPesanan() {
-        return nomorPesanan;
+    public void setJudulVideo(String judulVideo) {
+        this.judulVideo = judulVideo;
     }
 
-    public void setNomorPesanan(String nomorPesanan) {
-        this.nomorPesanan = nomorPesanan;
+    public String getVideoThumbnail() {
+        return videoThumbnail;
     }
 
-    public String getNamaBahan() {
-        return namaBahan;
+    public void setVideoThumbnail(String videoThumbnail) {
+        this.videoThumbnail = videoThumbnail;
     }
 
-    public void setNamaBahan(String namaBahan) {
-        this.namaBahan = namaBahan;
+    public String getVideoURL() {
+        return videoURL;
     }
 
-    public String getJumlahBahan() {
-        return jumlahBahan;
+    public void setVideoURL(String videoURL) {
+        this.videoURL = videoURL;
     }
 
-    public void setJumlahBahan(String jumlahBahan) {
-        this.jumlahBahan = jumlahBahan;
-    }
+    public StatusPesanan(String judulVideo, String videoThumbnail, String videoURL) {
 
-    public String getStatusPesanan() {
-        return statusPesanan;
-    }
-
-    public void setStatusPesanan(String statusPesanan) {
-        this.statusPesanan = statusPesanan;
+        this.judulVideo = judulVideo;
+        this.videoThumbnail = videoThumbnail;
+        this.videoURL = videoURL;
     }
 }

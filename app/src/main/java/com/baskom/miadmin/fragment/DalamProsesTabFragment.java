@@ -20,6 +20,7 @@ import java.util.List;
  */
 
 public class DalamProsesTabFragment extends android.support.v4.app.Fragment {
+
     List<DalamProses> dalamProsesList = new ArrayList<>();
     RecyclerView recyclerView;
     DalamProsesCardAdapter adapter;
@@ -27,6 +28,7 @@ public class DalamProsesTabFragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_dalam_proses, container, false);
+
         recyclerView = rootView.findViewById(R.id.recycler_view_dalam_proses);
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setFocusable(false);
@@ -36,8 +38,9 @@ public class DalamProsesTabFragment extends android.support.v4.app.Fragment {
         return rootView;
     }
 
-    public void getDalamProsesList() {
+    public void getDalamProsesList(){
         dalamProsesList = new ArrayList<>();
+
         DalamProses dalamProses = new DalamProses(
                 "00001",
                 "90's Cake",
@@ -55,7 +58,11 @@ public class DalamProsesTabFragment extends android.support.v4.app.Fragment {
                 "120000"
         );
         dalamProsesList.add(dalamProses2);
+
         adapter = new DalamProsesCardAdapter(dalamProsesList);
         recyclerView.setAdapter(adapter);
+
     }
+
+
 }

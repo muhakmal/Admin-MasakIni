@@ -15,7 +15,8 @@ import java.util.List;
  * Created by akmalmuhamad on 23/11/17.
  */
 
-public class DalamProsesCardAdapter extends RecyclerView.Adapter {
+public class DalamProsesCardAdapter extends RecyclerView.Adapter{
+
     private List<DalamProses> dalamProsesList = new ArrayList<>();
 
     public DalamProsesCardAdapter(List<DalamProses> dalamProsesList) {
@@ -32,7 +33,7 @@ public class DalamProsesCardAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
-        if (holder.getItemViewType() == R.layout.card_dalam_proses) {
+        if(holder.getItemViewType() == R.layout.card_dalam_proses){
             ((DalamProsesCardViewHolder) holder).bindData(dalamProsesList.get(position));
         }
     }

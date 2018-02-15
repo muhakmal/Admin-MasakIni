@@ -14,32 +14,39 @@ import com.baskom.miadmin.model.DalamProses;
  */
 
 public class DalamProsesCardViewHolder extends RecyclerView.ViewHolder {
-    private TextView tvNomorPesanan;
-    private TextView tvNamaBahanMasakan;
-    private TextView tvJumlahPesanan;
-    private TextView tvAlamatPengiriman;
-    private TextView tvHarga;
+    private TextView nomorPesanan;
+    private TextView namaBahanMasakan;
+    private TextView jumlahPesanan;
+    private TextView alamatPengiriman;
+    private TextView harga;
+
     private CardView cardView;
-    private Button btnTolakPesanan;
-    private Button btnTerimaPesanan;
+
+    private Button tolakPesanan;
+    private Button terimaPesanan;
 
     public DalamProsesCardViewHolder(View itemView) {
         super(itemView);
-        tvNomorPesanan = itemView.findViewById(R.id.tv_card_noorder);
-        tvNamaBahanMasakan = itemView.findViewById(R.id.tv_card_namaBahanMasakan);
-        tvJumlahPesanan = itemView.findViewById(R.id.tv_card_jumlahPaket);
-        tvAlamatPengiriman = itemView.findViewById(R.id.tv_card_alamatPengiriman);
-        tvHarga = itemView.findViewById(R.id.tv_card_harga);
+        nomorPesanan = itemView.findViewById(R.id.tv_card_noorder);
+        namaBahanMasakan = itemView.findViewById(R.id.tv_card_namaBahanMasakan);
+        jumlahPesanan = itemView.findViewById(R.id.tv_card_jumlahPaket);
+        alamatPengiriman = itemView.findViewById(R.id.tv_card_alamatPengiriman);
+        harga = itemView.findViewById(R.id.tv_card_harga);
+
         cardView = itemView.findViewById(R.id.card_view_dalam_proses);
-        btnTolakPesanan = itemView.findViewById(R.id.btn_tolak_pesanan);
-        btnTerimaPesanan = itemView.findViewById(R.id.btn_terima_pesanan);
+
+        tolakPesanan = itemView.findViewById(R.id.btn_tolak_pesanan);
+        terimaPesanan = itemView.findViewById(R.id.btn_terima_pesanan);
     }
 
     public void bindData(final DalamProses dalamProses) {
-        tvNomorPesanan.setText(dalamProses.getNomorPesanan());
-        tvNamaBahanMasakan.setText(dalamProses.getNamaBahanMasakan());
-        tvJumlahPesanan.setText(dalamProses.getJumlahPesanan());
-        tvAlamatPengiriman.setText(dalamProses.getAlamatPengiriman());
-        tvHarga.setText(dalamProses.getHarga());
+        nomorPesanan.setText(dalamProses.getNomorPesanan());
+        namaBahanMasakan.setText(dalamProses.getNamaBahanMasakan());
+        jumlahPesanan.setText(dalamProses.getJumlahPesanan());
+        alamatPengiriman.setText(dalamProses.getAlamatPengiriman());
+        harga.setText(dalamProses.getHarga());
     }
+
+
+
 }

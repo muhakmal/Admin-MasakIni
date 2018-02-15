@@ -16,7 +16,7 @@
         <item
             android:id="@+id/nav_kelola_video"
             android:icon="@drawable/ic_kelola_video"
-            android:title="Kelola Video" />
+            android:title="Riwayat Order" />
 
     </group>
 
