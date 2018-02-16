@@ -1,24 +1,24 @@
 package com.baskom.miadmin.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by akmalmuhamad on 01/01/18.
  */
 
-public class DalamProses {
+public class DalamProses implements Serializable {
     private String nomorPesanan;
-    private String namaBahanMasakan;
-    private String jumlahPesanan;
-    private String alamatPengiriman;
-    private String harga;
+    private String statusPesanan;
+    private List<ItemKeranjang> isiPesanan = new ArrayList<>();
+    private Pemesan pemesan;
 
-    public DalamProses(String nomorPesanan, String namaBahanMasakan, String jumlahPesanan, String alamatPengiriman, String harga) {
+    public DalamProses(String nomorPesanan, String statusPesanan, List<ItemKeranjang> isiPesanan, Pemesan pemesan) {
         this.nomorPesanan = nomorPesanan;
-        this.namaBahanMasakan = namaBahanMasakan;
-        this.jumlahPesanan = jumlahPesanan;
-        this.alamatPengiriman = alamatPengiriman;
-        this.harga = harga;
+        this.statusPesanan = statusPesanan;
+        this.isiPesanan = isiPesanan;
+        this.pemesan = pemesan;
     }
 
     public String getNomorPesanan() {
@@ -29,35 +29,35 @@ public class DalamProses {
         this.nomorPesanan = nomorPesanan;
     }
 
-    public String getNamaBahanMasakan() {
-        return namaBahanMasakan;
+    public String getStatusPesanan() {
+        return statusPesanan;
     }
 
-    public void setNamaBahanMasakan(String namaBahanMasakan) {
-        this.namaBahanMasakan = namaBahanMasakan;
+    public void setStatusPesanan(String statusPesanan) {
+        this.statusPesanan = statusPesanan;
     }
 
-    public String getJumlahPesanan() {
-        return jumlahPesanan;
+    public List<ItemKeranjang> getIsiPesanan() {
+        return isiPesanan;
     }
 
-    public void setJumlahPesanan(String jumlahPesanan) {
-        this.jumlahPesanan = jumlahPesanan;
+    public void setIsiPesanan(List<ItemKeranjang> isiPesanan) {
+        this.isiPesanan = isiPesanan;
     }
 
-    public String getAlamatPengiriman() {
-        return alamatPengiriman;
+    public Pemesan getPemesan() {
+        return pemesan;
     }
 
-    public void setAlamatPengiriman(String alamatPengiriman) {
-        this.alamatPengiriman = alamatPengiriman;
+    public void setPemesan(Pemesan pemesan) {
+        this.pemesan = pemesan;
     }
 
-    public String getHarga() {
-        return harga;
-    }
-
-    public void setHarga(String harga) {
-        this.harga = harga;
+    public int getTotalEstimasi(){
+        int totalEstimasi = 0;
+        for (int i = 0; i < isiPesanan.size(); i++){
+            totalEstimasi += isiPesanan.get(i).getTotalHarga();
+        }
+        return totalEstimasi;
     }
 }

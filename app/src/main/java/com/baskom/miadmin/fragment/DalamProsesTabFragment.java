@@ -8,10 +8,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.baskom.miadmin.R;
 import com.baskom.miadmin.adapter.DalamProsesCardAdapter;
 import com.baskom.miadmin.model.DalamProses;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Method;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +30,6 @@ import java.util.List;
  */
 
 public class DalamProsesTabFragment extends android.support.v4.app.Fragment {
-
     List<DalamProses> dalamProsesList = new ArrayList<>();
     RecyclerView recyclerView;
     DalamProsesCardAdapter adapter;
@@ -30,38 +39,29 @@ public class DalamProsesTabFragment extends android.support.v4.app.Fragment {
         View rootView = inflater.inflate(R.layout.fragment_dalam_proses, container, false);
 
         recyclerView = rootView.findViewById(R.id.recycler_view_dalam_proses);
-        recyclerView.setNestedScrollingEnabled(false);
-        recyclerView.setFocusable(false);
+        adapter = new DalamProsesCardAdapter(dalamProsesList);
+        recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setHasFixedSize(true);
         getDalamProsesList();
         return rootView;
     }
 
     public void getDalamProsesList(){
-        dalamProsesList = new ArrayList<>();
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                JsonArray jsonResponse = new JsonParser().parse(response).getAsJsonArray();
+                Type listType = new TypeToken<List<DalamProses>>(){}.getType();
+                dalamProsesList = new Gson().fromJson(jsonResponse,listType);
+                adapter.setDalamProsesList(dalamProsesList);
+                adapter.notifyDataSetChanged();
+            }
+        };
 
-        DalamProses dalamProses = new DalamProses(
-                "00001",
-                "90's Cake",
-                "5 Paket",
-                "Jalan Manunggal II No.14 Kelurahan Rambutan, Kecamatan Ciracas, Jakarta Timur",
-                "120000"
-        );
-        dalamProsesList.add(dalamProses);
-
-        DalamProses dalamProses2 = new DalamProses(
-                "00001",
-                "90's Cake",
-                "5 Paket",
-                "Jalan Manunggal II No.14 Kelurahan Rambutan, Kecamatan Ciracas, Jakarta Timur",
-                "120000"
-        );
-        dalamProsesList.add(dalamProses2);
-
-        adapter = new DalamProsesCardAdapter(dalamProsesList);
-        recyclerView.setAdapter(adapter);
-
+        StringRequest request = new StringRequest(Request.Method.GET,
+                "http://masakini.xyz/masakiniapi/ItemTransaksiAdminDalamProses.php",
+                responseListener,null);
+        Volley.newRequestQueue(getContext().getApplicationContext()).add(request);
     }
 
 

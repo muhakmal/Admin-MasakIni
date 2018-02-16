@@ -41,10 +41,14 @@ public class DalamProsesCardViewHolder extends RecyclerView.ViewHolder {
 
     public void bindData(final DalamProses dalamProses) {
         nomorPesanan.setText(dalamProses.getNomorPesanan());
-        namaBahanMasakan.setText(dalamProses.getNamaBahanMasakan());
-        jumlahPesanan.setText(dalamProses.getJumlahPesanan());
-        alamatPengiriman.setText(dalamProses.getAlamatPengiriman());
-        harga.setText(dalamProses.getHarga());
+        String judulPesanan = "";
+        for(int i = 0; i < dalamProses.getIsiPesanan().size(); i++){
+            judulPesanan += " "+dalamProses.getIsiPesanan().get(i).getJudulResep();
+        }
+        namaBahanMasakan.setText(judulPesanan);
+        jumlahPesanan.setText(Integer.toString(dalamProses.getIsiPesanan().size()));
+        alamatPengiriman.setText(dalamProses.getPemesan().getAlamatLengkap());
+        harga.setText("Rp "+Integer.toString(dalamProses.getTotalEstimasi()+20000));
     }
 
 

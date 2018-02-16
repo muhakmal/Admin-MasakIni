@@ -5,11 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Castor on 12/6/2017.
+ * Created by akmalmuhamad on 25/12/17.
  */
 
-public class Resep implements Serializable {
-
+public class ItemKeranjang implements Serializable {
     private String judulResep;
     private String subJudulResep;
     private String penjelasanResep;
@@ -20,19 +19,7 @@ public class Resep implements Serializable {
     private List<Bahan> bahan = new ArrayList<>();
     private List<Step> step = new ArrayList<>();
     private List<Produk> produk = new ArrayList<>();
-
-    public Resep(String judulResep, String subJudulResep, String penjelasanResep, String tingkatKesulitan, String untukBerapaOrang, String waktuMemasak, String resepImage, List<Bahan> bahan, List<Step> step, List<Produk> produk) {
-        this.judulResep = judulResep;
-        this.subJudulResep = subJudulResep;
-        this.penjelasanResep = penjelasanResep;
-        this.tingkatKesulitan = tingkatKesulitan;
-        this.untukBerapaOrang = untukBerapaOrang;
-        this.waktuMemasak = waktuMemasak;
-        this.resepImage = resepImage;
-        this.bahan = bahan;
-        this.step = step;
-        this.produk = produk;
-    }
+    private int jumlahPaket;
 
     public String getJudulResep() {
         return judulResep;
@@ -112,5 +99,36 @@ public class Resep implements Serializable {
 
     public void setProduk(List<Produk> produk) {
         this.produk = produk;
+    }
+
+    public int getJumlahPaket() {
+        return jumlahPaket;
+    }
+
+    public void setJumlahPaket(int jumlahPaket) {
+        this.jumlahPaket = jumlahPaket;
+    }
+
+    public ItemKeranjang(String judulResep, String subJudulResep, String penjelasanResep, String tingkatKesulitan, String untukBerapaOrang, String waktuMemasak, String resepImage, List<Bahan> bahan, List<Step> step, List<Produk> produk, int jumlahPaket) {
+
+        this.judulResep = judulResep;
+        this.subJudulResep = subJudulResep;
+        this.penjelasanResep = penjelasanResep;
+        this.tingkatKesulitan = tingkatKesulitan;
+        this.untukBerapaOrang = untukBerapaOrang;
+        this.waktuMemasak = waktuMemasak;
+        this.resepImage = resepImage;
+        this.bahan = bahan;
+        this.step = step;
+        this.produk = produk;
+        this.jumlahPaket = jumlahPaket;
+    }
+
+    public int getTotalHarga(){
+        int total = 0;
+        for (int i = 0 ; i < produk.size(); i++){
+            total += produk.get(i).getHarga();
+        }
+        return total;
     }
 }

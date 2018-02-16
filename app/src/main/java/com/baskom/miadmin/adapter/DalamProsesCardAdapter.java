@@ -23,6 +23,14 @@ public class DalamProsesCardAdapter extends RecyclerView.Adapter{
         this.dalamProsesList.addAll(dalamProsesList);
     }
 
+    public List<DalamProses> getDalamProsesList() {
+        return dalamProsesList;
+    }
+
+    public void setDalamProsesList(List<DalamProses> dalamProsesList) {
+        this.dalamProsesList = dalamProsesList;
+    }
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //inflate new view when creating new items in recyclerview
