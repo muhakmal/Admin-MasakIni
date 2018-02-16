@@ -50,15 +50,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_below="@id/nopesanan"
-                    android:background="@color/divider"/>
+                    android:background="@color/divider" />
 
                 <TextView
                     android:id="@+id/bahanmasakan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/a"
+                    android:layout_alignBaseline="@id/tv_card_namaBahanMasakan"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginTop="5dp"
                     android:text="Bahan Masakan :" />
 
                 <TextView
@@ -66,7 +65,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/bahanmasakan"
-                    android:layout_below="@+id/bahanmasakan"
+                    android:layout_alignBaseline="@id/tv_card_jumlahPaket"
                     android:text="Jumlah Pesanan :" />
 
                 <TextView
@@ -89,9 +88,11 @@
                     android:id="@+id/tv_card_namaBahanMasakan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@id/bahanmasakan"
-                    android:layout_marginLeft="5dp"
+                    android:layout_alignRight="@id/tv_card_noorder"
+                    android:layout_below="@+id/a"
+                    android:layout_marginTop="5dp"
                     android:layout_toRightOf="@id/bahanmasakan"
+                    android:gravity="end"
                     android:text="90'S Cake"
                     android:textColor="@color/nliveo_black_light" />
 
@@ -99,16 +100,18 @@
                     android:id="@+id/tv_card_jumlahPaket"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@id/jumlahpesanan"
-                    android:layout_marginLeft="5dp"
-                    android:layout_toRightOf="@id/jumlahpesanan"
+                    android:gravity="end"
+                    android:layout_below="@id/tv_card_namaBahanMasakan"
                     android:text="5 Paket"
-                    android:textColor="@color/nliveo_black_light" />
+                    android:textColor="@color/nliveo_black_light"
+                    android:layout_alignRight="@id/tv_card_namaBahanMasakan" />
 
                 <TextView
                     android:id="@+id/tv_card_alamatPengiriman"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/tv_card_jumlahPaket"
+                    android:gravity="end"
                     android:layout_alignBaseline="@id/alamatpengiriman"
                     android:layout_marginLeft="5dp"
                     android:layout_toRightOf="@id/alamatpengiriman"

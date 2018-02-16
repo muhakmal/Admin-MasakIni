@@ -1,6 +1,7 @@
 package com.baskom.miadmin.adapter;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -17,37 +18,36 @@ import com.bumptech.glide.Glide;
  */
 
 public class StatusPesananCardViewHolder extends RecyclerView.ViewHolder{
-    private ImageView videoThumbnail;
-    private TextView judulVideo;
-    private String URL_VIDEO;
-
-    private CardView cardViewVideo;
+    private TextView nomorPesanan;
+    private TextView namaBahanMasakan;
+    private TextView jumlahPesanan;
+    private TextView alamatPengiriman;
+    private TextView harga;
+    private TextView status;
+    
+    private CardView cardViewStatusPesanan;
 
     public StatusPesananCardViewHolder(View itemView) {
         super(itemView);
-        videoThumbnail= itemView.findViewById(R.id.cardView_main_image_video);
-        judulVideo = itemView.findViewById(R.id.cardView_judul_video);
-
-        cardViewVideo = itemView.findViewById(R.id.card_view_video);
-
+        nomorPesanan = itemView.findViewById(R.id.tv_card_noorder_status_pesanan);
+        namaBahanMasakan = itemView.findViewById(R.id.tv_card_namaBahanMasakan_status_pesanan);
+        jumlahPesanan = itemView.findViewById(R.id.tv_card_alamatPengiriman_status_pesanan);
+        alamatPengiriman = itemView.findViewById(R.id.tv_card_alamatPengiriman_status_pesanan);
+        harga = itemView.findViewById(R.id.tv_card_harga_status_pesanan);
+        status = itemView.findViewById(R.id.tv_status_pesanan);
     }
 
     public void bindData(final StatusPesanan statusPesanan){
-
-        final Uri uri = Uri.parse(statusPesanan.getVideoURL());
-
-        Glide.with(cardViewVideo.getContext())
-                .load(statusPesanan.getVideoThumbnail())
-                .into(videoThumbnail);
-        judulVideo.setText(statusPesanan.getJudulVideo());
-
-        cardViewVideo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                intent.putExtra("force_fullscreen", true);
-                v.getContext().startActivity(intent);
-            }
-        });
+        nomorPesanan.setText(statusPesanan.getNomorPesanan());
+        namaBahanMasakan.setText(statusPesanan.getNamaBahanMasakan());
+        jumlahPesanan.setText(statusPesanan.getJumlahPesanan());
+        alamatPengiriman.setText(statusPesanan.getAlamatPengiriman());
+        harga.setText(statusPesanan.getHarga());
+        if (statusPesanan.getStatus().contains("DITOLAK")){
+            status.setText(statusPesanan.getStatus());
+            status.setTextColor(Color.RED);
+        }else {
+            status.setText(statusPesanan.getStatus());
+        }
     }
 }

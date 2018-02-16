@@ -42,40 +42,25 @@ public class StatusPesananTabFragment extends android.support.v4.app.Fragment {
         statusPesananList = new ArrayList<>();
 
         StatusPesanan statusPesanan = new StatusPesanan(
-                "90's Cake - MasakTV",
-                "http://masakini.xyz/masakiniapi/video_thumbnail/90'scake_video_thumbnail.jpg",
-                "https://youtu.be/ec3As5G7Tm0?list=PLoaIzBdYD0wYxJ9F5UaqihIb2cszbuUbu"
+                "00001",
+                "90's Cake",
+                "5 Paket",
+                "Jalan Manunggal II No.14 Kelurahan Rambutan, Kecamatan Ciracas, Jakarta Timur",
+                "120000",
+                "DITERIMA"
         );
         statusPesananList.add(statusPesanan);
 
         StatusPesanan statusPesanan1 = new StatusPesanan(
-                "Ayam Goreng Saos Padang - MasakTV",
-                "http://masakini.xyz/masakiniapi/video_thumbnail/ayamgorengpadang_video_thumbnail.jpg",
-                "https://youtu.be/R5xg9jB3njo?list=PLoaIzBdYD0wYxJ9F5UaqihIb2cszbuUbu"
+                "00001",
+                "90's Cake",
+                "5 Paket",
+                "Jalan Manunggal II No.14 Kelurahan Rambutan, Kecamatan Ciracas, Jakarta Timur",
+                "120000",
+                "DITOLAK"
 
         );
         statusPesananList.add(statusPesanan1);
-
-        StatusPesanan statusPesanan2 = new StatusPesanan(
-                "Gulai Balungan - MasakTV",
-                "http://masakini.xyz/masakiniapi/video_thumbnail/gulaibalungan__video_thumbnail.jpg",
-                "https://youtu.be/q4e1ZHMaLQg?list=PLoaIzBdYD0wYxJ9F5UaqihIb2cszbuUbu"
-        );
-        statusPesananList.add(statusPesanan2);
-
-        StatusPesanan statusPesanan3 = new StatusPesanan(
-                "Gurame Saos Lemon - MasakTV",
-                "http://masakini.xyz/masakiniapi/video_thumbnail/guramelemon_video_thumbnail.jpg",
-                "https://youtu.be/KtcazjQdtbA?list=PLoaIzBdYD0wYxJ9F5UaqihIb2cszbuUbu"
-        );
-        statusPesananList.add(statusPesanan3);
-
-        StatusPesanan statusPesanan4 = new StatusPesanan(
-                "Nasi Bakar Bumbu Jontor",
-                "http://masakini.xyz/masakiniapi/video_thumbnail/nasbakar_video_thumbnail.jpg",
-                "https://youtu.be/dAa6bHXAMcw?list=PLoaIzBdYD0wYxJ9F5UaqihIb2cszbuUbu"
-        );
-        statusPesananList.add(statusPesanan4);
 
         adapter = new StatusPesananCardAdapter(statusPesananList);
         recyclerView.setAdapter(adapter);

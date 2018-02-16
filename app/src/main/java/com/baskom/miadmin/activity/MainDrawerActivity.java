@@ -1,5 +1,6 @@
 package com.baskom.miadmin.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -81,11 +82,12 @@ public class MainDrawerActivity extends AppCompatActivity
         if (id == R.id.nav_daftar_pesanan) {
             viewPager.setCurrentItem(0);
         } else if (id == R.id.nav_kelola_resep) {
-
+            Intent intent = new Intent(this, KelolaResepActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_kelola_video) {
-
+            Intent intent = new Intent(this, KelolaVideoActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_keluar) {
-
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
         <activity
-            android:name="com.baskom.miadmin.activity.SplashActivity"
+            android:name=".activity.SplashActivity"
             android:theme="@style/splashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +23,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.baskom.miadmin.activity.MainDrawerActivity" />
+        <activity android:name=".activity.MainDrawerActivity" />
+        <activity android:name=".activity.KelolaResepActivity" />
+        <activity android:name=".activity.KelolaVideoActivity" />
+        <activity android:name=".activity.TambahResepActivity" />
+        <activity android:name=".activity.TambahVideoActivity"></activity>
     </application>
 
 </manifest>

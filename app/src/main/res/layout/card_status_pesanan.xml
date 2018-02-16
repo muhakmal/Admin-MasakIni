@@ -1,52 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linear_resep"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:clipToPadding="false"
     android:orientation="vertical">
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view_video"
+        android:id="@+id/card_status_pesanan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="@dimen/card_margin"
-        android:elevation="10dp"
+        app:cardElevation="5dp"
         app:cardUseCompatPadding="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:paddingBottom="10dp"
-            android:paddingTop="0dp">
+            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/cardView_main_image_video"
+            <RelativeLayout
+                android:id="@+id/relativenoorder"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:adjustViewBounds="true"
-                android:scaleType="fitXY"
-                android:src="@drawable/dummy_img_resep" />
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/cardView_judul_video"
-                android:layout_width="wrap_content"
-                android:layout_height="24dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/cardView_main_image_video"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:singleLine="true"
-                android:text="Judul Video"
-                android:textColor="@color/nliveo_black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/nopesanan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="Nomor Pesanan"
+                    android:textColor="@color/nliveo_black" />
+
+                <TextView
+                    android:id="@+id/tv_card_noorder_status_pesanan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/nopesanan"
+                    android:layout_alignBottom="@+id/nopesanan"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="00001"
+                    android:textColor="@color/nliveo_black" />
+
+                <View
+                    android:id="@+id/a"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/nopesanan"
+                    android:background="@color/divider" />
+
+                <TextView
+                    android:id="@+id/bahanmasakan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/tv_card_namaBahanMasakan_status_pesanan"
+                    android:layout_marginLeft="5dp"
+                    android:text="Bahan Masakan :" />
+
+                <TextView
+                    android:id="@+id/jumlahpesanan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/bahanmasakan"
+                    android:layout_alignBaseline="@id/tv_card_jumlahPaket"
+                    android:text="Jumlah Pesanan :" />
+
+                <TextView
+                    android:id="@+id/alamatpengiriman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/jumlahpesanan"
+                    android:layout_below="@+id/jumlahpesanan"
+                    android:text="Alamat Pengiriman :" />
+
+                <TextView
+                    android:id="@+id/harga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/alamatpengiriman"
+                    android:layout_below="@+id/tv_card_alamatPengiriman_status_pesanan"
+                    android:text="Harga :" />
+
+                <TextView
+                    android:id="@+id/tv_card_namaBahanMasakan_status_pesanan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@id/tv_card_noorder_status_pesanan"
+                    android:layout_below="@+id/a"
+                    android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@id/bahanmasakan"
+                    android:gravity="end"
+                    android:text="90'S Cake"
+                    android:textColor="@color/nliveo_black_light" />
+
+                <TextView
+                    android:id="@+id/tv_card_jumlahPaket"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:layout_below="@id/tv_card_namaBahanMasakan_status_pesanan"
+                    android:text="5 Paket"
+                    android:textColor="@color/nliveo_black_light"
+                    android:layout_alignRight="@id/tv_card_namaBahanMasakan_status_pesanan" />
+
+                <TextView
+                    android:id="@+id/tv_card_alamatPengiriman_status_pesanan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/tv_card_jumlahPaket"
+                    android:gravity="end"
+                    android:layout_alignBaseline="@id/alamatpengiriman"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/alamatpengiriman"
+                    android:text="Komplek Sandang C15 RT001/RW011, Kec. Palmerah, DKI Jakarta, Kota Jakarta Barat, Palmerah"
+                    android:textColor="@color/nliveo_black_light" />
+
+                <TextView
+                    android:id="@+id/tv_card_harga_status_pesanan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/harga"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/harga"
+                    android:text="Rp250.000"
+                    android:textColor="@color/nliveo_black_light" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/harga"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/divider" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/view">
+
+                    <LinearLayout
+                        android:id="@+id/linearbuttontolak"
+                        android:layout_width="match_parent"
+                        android:gravity="center_horizontal|center_vertical"
+                        android:layout_height="30dp">
+                        <TextView
+                            android:id="@+id/tv_status_pesanan"
+                            android:textColor="@color/nliveo_green_colorPrimary"
+                            android:textStyle="bold"
+                            android:textAllCaps="true"
+                            android:text="diterima"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
 
 
         </RelativeLayout>
