@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.baskom.miadmin.activity.Tab3CaraMemasak">
+    tools:context="com.baskom.miadmin.fragment.Tab3CaraMemasak">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/layout_judul_step"

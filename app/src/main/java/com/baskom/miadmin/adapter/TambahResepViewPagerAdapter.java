@@ -4,10 +4,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.baskom.miadmin.activity.Tab1KartuResep;
-import com.baskom.miadmin.activity.Tab2BahanResep;
-import com.baskom.miadmin.activity.Tab3CaraMemasak;
-import com.baskom.miadmin.activity.Tab4DaftarProduk;
+import com.baskom.miadmin.fragment.Tab1KartuResep;
+import com.baskom.miadmin.fragment.Tab2BahanResep;
+import com.baskom.miadmin.fragment.Tab3CaraMemasak;
+import com.baskom.miadmin.fragment.Tab4DaftarProduk;
 
 /**
  * Created by akmalmuhamad on 16/02/18.

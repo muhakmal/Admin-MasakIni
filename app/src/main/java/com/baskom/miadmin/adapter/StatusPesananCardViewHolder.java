@@ -13,18 +13,22 @@ import com.baskom.miadmin.R;
 import com.baskom.miadmin.model.StatusPesanan;
 import com.bumptech.glide.Glide;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 /**
  * Created by akmalmuhamad on 27/12/17.
  */
 
 public class StatusPesananCardViewHolder extends RecyclerView.ViewHolder{
+    Locale localeID = new Locale("in", "ID");
+    NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
     private TextView nomorPesanan;
     private TextView namaBahanMasakan;
     private TextView jumlahPesanan;
     private TextView alamatPengiriman;
     private TextView harga;
     private TextView status;
-    
     private CardView cardViewStatusPesanan;
 
     public StatusPesananCardViewHolder(View itemView) {
@@ -40,9 +44,9 @@ public class StatusPesananCardViewHolder extends RecyclerView.ViewHolder{
     public void bindData(final StatusPesanan statusPesanan){
         nomorPesanan.setText(statusPesanan.getNomorPesanan());
         namaBahanMasakan.setText(statusPesanan.getNamaBahanMasakan());
-        jumlahPesanan.setText(statusPesanan.getJumlahPesanan());
+        jumlahPesanan.setText(statusPesanan.getJumlahPesanan()+ " Paket");
         alamatPengiriman.setText(statusPesanan.getAlamatPengiriman());
-        harga.setText(statusPesanan.getHarga());
+        harga.setText("Rp" + statusPesanan.getHarga());
         if (statusPesanan.getStatus().contains("DITOLAK")){
             status.setText(statusPesanan.getStatus());
             status.setTextColor(Color.RED);

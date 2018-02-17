@@ -28,7 +28,6 @@
             android:layout_alignParentStart="true" />
 
         <ru.dimorinny.floatingtextbutton.FloatingTextButton
-            app:layout_behaviour="ru.dimorinny.floatingtextbutton.behavior.SnackbarBehavior"
             android:id="@+id/fab_tambah_video"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.baskom.miadmin.activity.Tab2BahanResep">
+    tools:context="com.baskom.miadmin.fragment.Tab2BahanResep">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/layout_takaran_bahan"

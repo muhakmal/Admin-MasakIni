@@ -64,23 +64,23 @@
                     android:id="@+id/jumlahpesanan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/bahanmasakan"
-                    android:layout_alignBaseline="@id/tv_card_jumlahPaket"
+                    android:layout_above="@id/alamatpengiriman"
+                    android:layout_marginLeft="5dp"
                     android:text="Jumlah Pesanan :" />
 
                 <TextView
                     android:id="@+id/alamatpengiriman"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/jumlahpesanan"
-                    android:layout_below="@+id/jumlahpesanan"
+                    android:layout_marginLeft="5dp"
+                    android:layout_alignTop="@id/tv_card_alamatPengiriman_status_pesanan"
                     android:text="Alamat Pengiriman :" />
 
                 <TextView
                     android:id="@+id/harga"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/alamatpengiriman"
+                    android:layout_marginLeft="5dp"
                     android:layout_below="@+id/tv_card_alamatPengiriman_status_pesanan"
                     android:text="Harga :" />
 
@@ -112,7 +112,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignRight="@+id/tv_card_jumlahPaket"
                     android:gravity="end"
-                    android:layout_alignBaseline="@id/alamatpengiriman"
+                    android:layout_below="@id/tv_card_jumlahPaket"
                     android:layout_marginLeft="5dp"
                     android:layout_toRightOf="@id/alamatpengiriman"
                     android:text="Komplek Sandang C15 RT001/RW011, Kec. Palmerah, DKI Jakarta, Kota Jakarta Barat, Palmerah"
@@ -122,10 +122,10 @@
                     android:id="@+id/tv_card_harga_status_pesanan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@id/harga"
                     android:layout_marginLeft="5dp"
-                    android:layout_toRightOf="@id/harga"
+                    android:layout_alignRight="@id/tv_card_alamatPengiriman_status_pesanan"
                     android:text="Rp250.000"
+                    android:layout_below="@id/tv_card_alamatPengiriman_status_pesanan"
                     android:textColor="@color/nliveo_black_light" />
 
                 <View
