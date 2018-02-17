@@ -1,5 +1,6 @@
 package com.baskom.miadmin.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -26,11 +28,15 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import ru.dimorinny.floatingtextbutton.FloatingTextButton;
+
 public class KelolaResepActivity extends AppCompatActivity {
     private static final String RESEPLIST_REQUEST_URL = "http://masakini.xyz/masakiniapi/Reseplist.php";
     List<Resep> resepList = new ArrayList<>();
     RecyclerView recyclerView;
     KelolaResepCardAdapter adapter;
+
+    FloatingTextButton fabTambahResep;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +47,21 @@ public class KelolaResepActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Kelola Resep");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        fabTambahResep = findViewById(R.id.fab_tambah_resep);
+
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setFocusable(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         getResepList();
+
+        fabTambahResep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(KelolaResepActivity.this, TambahResepActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void getResepList(){

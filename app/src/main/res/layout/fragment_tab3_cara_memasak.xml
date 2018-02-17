@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.baskom.miadmin.activity.Tab3CaraMemasak">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layout_judul_step"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_judul_step"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:hint="Judul Step" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layout_penjelasan_step"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_judul_step"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:gravity="top"
+            android:id="@+id/et_penjelasan_step"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:hint="Penjelasan Step" />
+    </android.support.design.widget.TextInputLayout>
+
+    <ru.dimorinny.floatingtextbutton.FloatingTextButton
+        android:id="@+id/fab3_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="3dp"
+        app:floating_background_color="@color/colorPrimary"
+        app:floating_right_icon="@drawable/ic_arrow_forward"
+        app:floating_title="Selanjutnya"
+        app:floating_title_color="@color/nliveo_white" />
+
+</RelativeLayout>

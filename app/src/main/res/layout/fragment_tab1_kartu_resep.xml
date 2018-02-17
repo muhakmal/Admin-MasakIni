@@ -1,0 +1,133 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.baskom.miadmin.activity.Tab1KartuResep">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layout_et_judul_resep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp">
+
+        <EditText
+            android:id="@+id/et_judul_resep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Judul Resep" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layout_et_deskripsi_singkat_resep"
+        android:layout_alignRight="@id/layout_et_judul_resep"
+        android:layout_alignLeft="@id/layout_et_judul_resep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_et_judul_resep">
+
+        <EditText
+            android:id="@+id/et_deskripsi_singkat_resep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Deskripsi Singkat Resep" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layout_waktu_memasak"
+        android:layout_alignRight="@id/layout_et_judul_resep"
+        android:layout_alignLeft="@id/layout_et_judul_resep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_et_deskripsi_singkat_resep">
+
+        <EditText
+            android:tooltipText="Contoh : 40 Menit"
+            android:id="@+id/et_waktu_memasak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Waktu Memasak"
+            />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layout_tingkat_kesulitan"
+        android:layout_alignRight="@id/layout_et_judul_resep"
+        android:layout_alignLeft="@id/layout_et_judul_resep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_waktu_memasak">
+
+        <EditText
+            android:tooltipText="Contoh : Mudah, Sedang, Sulit"
+            android:id="@+id/et_tingkat_kesulitan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tingkat Kesulitan"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layout_untuk_berapa_orang"
+        android:layout_alignRight="@id/layout_et_judul_resep"
+        android:layout_alignLeft="@id/layout_et_judul_resep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_tingkat_kesulitan">
+
+        <EditText
+            android:tooltipText="Contoh : Mudah, Sedang, Sulit"
+            android:id="@+id/et_untuk_berapa_orang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Untuk Berapa Orang"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layout_url_gambar"
+        android:layout_alignRight="@id/layout_et_judul_resep"
+        android:layout_alignLeft="@id/layout_et_judul_resep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_untuk_berapa_orang">
+
+        <EditText
+            android:id="@+id/et_url_gambar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="URL Gambar Resep"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layout_penjelasa_detil"
+        android:layout_alignRight="@id/layout_et_judul_resep"
+        android:layout_alignLeft="@id/layout_et_judul_resep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_url_gambar">
+
+        <EditText
+            android:gravity="top"
+            android:id="@+id/et_penjelasan_detil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Penjelasan Detil Resep"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <ru.dimorinny.floatingtextbutton.FloatingTextButton
+        android:id="@+id/fab1_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="3dp"
+        app:floating_background_color="@color/colorPrimary"
+        app:floating_right_icon="@drawable/ic_arrow_forward"
+        app:floating_title="Selanjutnya"
+        app:floating_title_color="@color/nliveo_white" />
+
+</RelativeLayout>

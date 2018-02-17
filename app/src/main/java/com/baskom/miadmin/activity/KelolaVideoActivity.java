@@ -1,5 +1,6 @@
 package com.baskom.miadmin.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -26,11 +27,14 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.List;
 
+import ru.dimorinny.floatingtextbutton.FloatingTextButton;
+
 public class KelolaVideoActivity extends AppCompatActivity {
     private static final String VIDEO_LIST_REQUEST = "http://masakini.xyz/masakiniapi/Videolist.php";
     RecyclerView recyclerView;
     KelolaVideoCardAdapter adapter;
     List<Video> videoList;
+    FloatingTextButton fabTambahVideo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,15 @@ public class KelolaVideoActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Kelola Video");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        fabTambahVideo = findViewById(R.id.fab_tambah_video);
+        fabTambahVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(KelolaVideoActivity.this, TambahVideoActivity.class);
+                startActivity(intent);
+            }
+        });
 
         recyclerView = findViewById(R.id.recycler_view_video);
         recyclerView.setFocusable(false);
