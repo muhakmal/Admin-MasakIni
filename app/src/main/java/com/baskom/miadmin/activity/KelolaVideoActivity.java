@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -35,16 +36,19 @@ public class KelolaVideoActivity extends AppCompatActivity {
     KelolaVideoCardAdapter adapter;
     List<Video> videoList;
     FloatingTextButton fabTambahVideo;
+    Toolbar toolbar;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kelola_video);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
+        progressBar = findViewById(R.id.progressBar_kelola_video);
+        progressBar.setVisibility(View.VISIBLE);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Kelola Video");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         fabTambahVideo = findViewById(R.id.fab_tambah_video);
         fabTambahVideo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +57,6 @@ public class KelolaVideoActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         recyclerView = findViewById(R.id.recycler_view_video);
         recyclerView.setFocusable(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -71,6 +74,7 @@ public class KelolaVideoActivity extends AppCompatActivity {
                 videoList = new Gson().fromJson(jsonResponse, listType);
                 adapter = new KelolaVideoCardAdapter(videoList);
                 recyclerView.setAdapter(adapter);
+                progressBar.setVisibility(View.GONE);
             }
         };
 

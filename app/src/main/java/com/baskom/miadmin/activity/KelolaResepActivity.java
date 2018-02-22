@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -35,14 +36,17 @@ public class KelolaResepActivity extends AppCompatActivity {
     List<Resep> resepList = new ArrayList<>();
     RecyclerView recyclerView;
     KelolaResepCardAdapter adapter;
-
     FloatingTextButton fabTambahResep;
+    ProgressBar progressBar;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kelola_resep);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
+        progressBar = findViewById(R.id.progressBar_kelola_resep);
+        progressBar.setVisibility(View.VISIBLE);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Kelola Resep");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -73,6 +77,7 @@ public class KelolaResepActivity extends AppCompatActivity {
                 resepList = new Gson().fromJson(jsonResponse,listType);
                 adapter = new KelolaResepCardAdapter(resepList);
                 recyclerView.setAdapter(adapter);
+                progressBar.setVisibility(View.GONE);
             }
         };
 

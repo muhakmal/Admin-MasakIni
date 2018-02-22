@@ -1,7 +1,9 @@
 package com.baskom.miadmin.adapter;
 
+import android.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,6 +13,7 @@ import com.baskom.miadmin.model.DalamProses;
 
 import java.text.NumberFormat;
 import java.util.Locale;
+import java.util.zip.Inflater;
 
 /**
  * Created by Castor on 12/5/2017.
@@ -19,14 +22,15 @@ import java.util.Locale;
 public class DalamProsesCardViewHolder extends RecyclerView.ViewHolder {
     Locale localeID = new Locale("in", "ID");
     NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
-    private TextView nomorPesanan;
-    private TextView namaBahanMasakan;
-    private TextView jumlahPesanan;
-    private TextView alamatPengiriman;
-    private TextView harga;
-    private CardView cardView;
-    private Button tolakPesanan;
-    private Button terimaPesanan;
+    protected TextView nomorPesanan;
+    protected TextView namaBahanMasakan;
+    protected TextView jumlahPesanan;
+    protected TextView alamatPengiriman;
+    protected TextView harga;
+    protected CardView cardView;
+    protected Button btnTolakPesanan;
+    protected Button btnTerimaPesanan;
+    protected LayoutInflater inflater;
 
     public DalamProsesCardViewHolder(View itemView) {
         super(itemView);
@@ -36,8 +40,9 @@ public class DalamProsesCardViewHolder extends RecyclerView.ViewHolder {
         alamatPengiriman = itemView.findViewById(R.id.tv_card_alamatPengiriman);
         harga = itemView.findViewById(R.id.tv_card_harga);
         cardView = itemView.findViewById(R.id.card_view_dalam_proses);
-        tolakPesanan = itemView.findViewById(R.id.btn_tolak_pesanan);
-        terimaPesanan = itemView.findViewById(R.id.btn_terima_pesanan);
+        btnTolakPesanan = itemView.findViewById(R.id.btn_tolak_pesanan);
+        btnTerimaPesanan = itemView.findViewById(R.id.btn_terima_pesanan);
+        inflater = LayoutInflater.from(itemView.getContext());
     }
 
     public void bindData(final DalamProses dalamProses) {
