@@ -1,17 +1,13 @@
 package com.baskom.miadmin.adapter;
 
-import android.content.Intent;
 import android.graphics.Color;
-import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.baskom.miadmin.R;
 import com.baskom.miadmin.model.StatusPesanan;
-import com.bumptech.glide.Glide;
 
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -43,15 +39,19 @@ public class StatusPesananCardViewHolder extends RecyclerView.ViewHolder{
 
     public void bindData(final StatusPesanan statusPesanan){
         nomorPesanan.setText(statusPesanan.getNomorPesanan());
-        namaBahanMasakan.setText(statusPesanan.getNamaBahanMasakan());
-        jumlahPesanan.setText(statusPesanan.getJumlahPesanan()+ " Paket");
-        alamatPengiriman.setText(statusPesanan.getAlamatPengiriman());
-        harga.setText("Rp" + statusPesanan.getHarga());
-        if (statusPesanan.getStatus().contains("DITOLAK")){
-            status.setText(statusPesanan.getStatus());
+        String judulPesanan = "";
+        for (int i = 0; i < statusPesanan.getIsiPesanan().size();i++){
+            judulPesanan += " " +statusPesanan.getIsiPesanan().get(i).getJudulResep();
+        }
+        namaBahanMasakan.setText(judulPesanan);
+        jumlahPesanan.setText(Integer.toString(statusPesanan.getIsiPesanan().size())+ " Paket");
+        alamatPengiriman.setText(statusPesanan.getPemesan().getAlamatLengkap());
+        harga.setText(formatRupiah.format(statusPesanan.getTotalEstimasi()+20000));
+        if (statusPesanan.getStatusPesanan().contains("Ditolak")){
+            status.setText(statusPesanan.getStatusPesanan());
             status.setTextColor(Color.RED);
         }else {
-            status.setText(statusPesanan.getStatus());
+            status.setText(statusPesanan.getStatusPesanan());
         }
     }
 }

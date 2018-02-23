@@ -29,7 +29,7 @@ public class DalamProsesCardAdapter extends RecyclerView.Adapter {
     Context context;
 
     public DalamProsesCardAdapter(List<DalamProses> dalamProsesList, final Context context) {
-        this.dalamProsesList.addAll(dalamProsesList);
+        this.dalamProsesList = dalamProsesList;
         this.context = context;
     }
 

@@ -1,5 +1,6 @@
 package com.baskom.miadmin.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,10 +19,19 @@ import java.util.List;
 public class StatusPesananCardAdapter extends RecyclerView.Adapter {
 
     private List<StatusPesanan> statusPesananList = new ArrayList<>();
+    Context context;
 
-    public StatusPesananCardAdapter(List<StatusPesanan> statusPesananList) {
-        this.statusPesananList.addAll(statusPesananList);
+    public StatusPesananCardAdapter(List<StatusPesanan> statusPesananList, final Context context) {
+        this.statusPesananList = statusPesananList;
+        this.context = context;
     }
+
+    public void setStatusPesananList(List<StatusPesanan> statusPesananList){
+        this.statusPesananList = statusPesananList;
+    }
+    public List<StatusPesanan> getStatusPesananList(){return statusPesananList;}
+
+
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

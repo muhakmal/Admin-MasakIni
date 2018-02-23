@@ -75,7 +75,6 @@ public class DalamProsesTabFragment extends android.support.v4.app.Fragment {
                 progressBar.setVisibility(View.GONE);
             }
         };
-
         StringRequest request = new StringRequest(Request.Method.GET,
                 "http://masakini.xyz/masakiniapi/ItemTransaksiAdminDalamProses.php",
                 responseListener,null);
