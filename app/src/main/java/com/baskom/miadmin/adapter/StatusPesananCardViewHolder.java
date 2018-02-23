@@ -31,7 +31,7 @@ public class StatusPesananCardViewHolder extends RecyclerView.ViewHolder{
         super(itemView);
         nomorPesanan = itemView.findViewById(R.id.tv_card_noorder_status_pesanan);
         namaBahanMasakan = itemView.findViewById(R.id.tv_card_namaBahanMasakan_status_pesanan);
-        jumlahPesanan = itemView.findViewById(R.id.tv_card_alamatPengiriman_status_pesanan);
+        jumlahPesanan = itemView.findViewById(R.id.tv_card_jumlahPaket);
         alamatPengiriman = itemView.findViewById(R.id.tv_card_alamatPengiriman_status_pesanan);
         harga = itemView.findViewById(R.id.tv_card_harga_status_pesanan);
         status = itemView.findViewById(R.id.tv_status_pesanan);
