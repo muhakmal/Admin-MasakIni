@@ -1,5 +1,6 @@
 package com.baskom.miadmin.adapter;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -9,8 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
 import com.baskom.miadmin.R;
 import com.baskom.miadmin.model.DalamProses;
+import com.baskom.miadmin.request.AcceptOrRejectRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +57,7 @@ public class DalamProsesCardAdapter extends RecyclerView.Adapter {
             //konfirmasi tolak pesanan
             ((DalamProsesCardViewHolder)holder).btnTolakPesanan.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
+                public void onClick(final View v) {
                     final AlertDialog.Builder builder = new AlertDialog.Builder(context);
                     builder.setTitle("Konfirmasi Tolak Pesanan")
                             .setMessage("Apakah anda yakin ingin menolak pesananan ini?")
@@ -67,16 +71,24 @@ public class DalamProsesCardAdapter extends RecyclerView.Adapter {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     //update data to status pesanan menjadi ditolak
+                                    Response.Listener<String> listener = new Response.Listener<String>() {
+                                        @Override
+                                        public void onResponse(String response) {
+                                            Toast.makeText(v.getContext().getApplicationContext(), "Tolak Lorem Ipsum Banyak Orang Meninggal", Toast.LENGTH_SHORT).show();
+                                        }
+                                    };
+                                    AcceptOrRejectRequest request = new AcceptOrRejectRequest(dalamProsesList.get(position).getNomorPesanan(),"Ditolak",listener);
+                                    Volley.newRequestQueue(v.getContext().getApplicationContext()).add(request);
+                                    ((Activity) v.getContext()).recreate();
                                 }
                             })
                             .show();
-
                 }
             });
 
             ((DalamProsesCardViewHolder)holder).btnTerimaPesanan.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
+                public void onClick(final View v) {
                     //do something when terima pesanan
                     final AlertDialog.Builder builder = new AlertDialog.Builder(context);
                     builder.setTitle("Konfirmasi Terima Pesanan")
@@ -84,13 +96,22 @@ public class DalamProsesCardAdapter extends RecyclerView.Adapter {
                             .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    //do nothing when tidak is click
+                                    //do nothing when tidak is clicked
                                 }
                             })
                             .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     //update database to status pesanan menjadi dikirim
+                                    Response.Listener<String> listener = new Response.Listener<String>() {
+                                        @Override
+                                        public void onResponse(String response) {
+                                            Toast.makeText(v.getContext().getApplicationContext(), "Terima Lorem Ipsum Banyak Orang Meninggal", Toast.LENGTH_SHORT).show();
+                                        }
+                                    };
+                                    AcceptOrRejectRequest request = new AcceptOrRejectRequest(dalamProsesList.get(position).getNomorPesanan(),"Dikirim",listener);
+                                    Volley.newRequestQueue(v.getContext().getApplicationContext()).add(request);
+                                    ((Activity) v.getContext()).recreate();
                                 }
                             })
                             .show();
