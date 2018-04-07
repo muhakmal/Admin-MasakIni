@@ -74,7 +74,7 @@ public class DalamProsesCardAdapter extends RecyclerView.Adapter {
                                     Response.Listener<String> listener = new Response.Listener<String>() {
                                         @Override
                                         public void onResponse(String response) {
-                                            Toast.makeText(v.getContext().getApplicationContext(), "Tolak Lorem Ipsum Banyak Orang Meninggal", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(v.getContext().getApplicationContext(), "Pesananan ditolak.", Toast.LENGTH_SHORT).show();
                                         }
                                     };
                                     AcceptOrRejectRequest request = new AcceptOrRejectRequest(dalamProsesList.get(position).getNomorPesanan(),"Ditolak",listener);
@@ -106,7 +106,7 @@ public class DalamProsesCardAdapter extends RecyclerView.Adapter {
                                     Response.Listener<String> listener = new Response.Listener<String>() {
                                         @Override
                                         public void onResponse(String response) {
-                                            Toast.makeText(v.getContext().getApplicationContext(), "Terima Lorem Ipsum Banyak Orang Meninggal", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(v.getContext().getApplicationContext(), "Pesanan diterima.", Toast.LENGTH_SHORT).show();
                                         }
                                     };
                                     AcceptOrRejectRequest request = new AcceptOrRejectRequest(dalamProsesList.get(position).getNomorPesanan(),"Dikirim",listener);

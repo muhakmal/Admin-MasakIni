@@ -49,7 +49,7 @@ public class DalamProsesCardViewHolder extends RecyclerView.ViewHolder {
         nomorPesanan.setText(dalamProses.getNomorPesanan());
         String judulPesanan = "";
         for (int i = 0; i < dalamProses.getIsiPesanan().size(); i++) {
-            judulPesanan += " " + dalamProses.getIsiPesanan().get(i).getJudulResep();
+            judulPesanan += dalamProses.getIsiPesanan().get(i).getJudulResep()+"\n";
         }
         namaBahanMasakan.setText(judulPesanan);
         jumlahPesanan.setText(Integer.toString(dalamProses.getIsiPesanan().size())+ " Paket");

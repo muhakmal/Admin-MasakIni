@@ -56,7 +56,7 @@ public class DalamProsesTabFragment extends android.support.v4.app.Fragment {
             @Override
             public void onRefresh() {
                 getDalamProsesList();
-                Toast.makeText(getContext(), "Data telah diperbaharui.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Data dalam proses telah diperbaharui.", Toast.LENGTH_SHORT).show();
                 swipeRefreshLayout.setRefreshing(false);
             }
         });

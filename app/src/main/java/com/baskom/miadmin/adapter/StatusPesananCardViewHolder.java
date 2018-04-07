@@ -25,7 +25,6 @@ public class StatusPesananCardViewHolder extends RecyclerView.ViewHolder{
     private TextView alamatPengiriman;
     private TextView harga;
     private TextView status;
-    private CardView cardViewStatusPesanan;
 
     public StatusPesananCardViewHolder(View itemView) {
         super(itemView);

@@ -2,11 +2,13 @@ package com.baskom.miadmin.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -33,16 +35,25 @@ public class StatusPesananTabFragment extends android.support.v4.app.Fragment {
     RecyclerView recyclerView;
     StatusPesananCardAdapter adapter;
     private List<StatusPesanan> statusPesananList = new ArrayList<>();
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_status_pesanan, container, false);
-
         recyclerView = rootView.findViewById(R.id.recycler_view_video);
+        swipeRefreshLayout = rootView.findViewById(R.id.swipeContainer_status_pesanan);
         adapter = new StatusPesananCardAdapter(statusPesananList, getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         getStatusPesanan();
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getStatusPesanan();
+                Toast.makeText(getContext(), "Data status pesanan telah diperbaharui.", Toast.LENGTH_SHORT).show();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
         return rootView;
     }
 
@@ -65,31 +76,3 @@ public class StatusPesananTabFragment extends android.support.v4.app.Fragment {
         Volley.newRequestQueue(getContext().getApplicationContext()).add(request);
     }
 }
-
-    /*public void getStatusPesanan() {
-        statusPesananList = new ArrayList<>();
-
-        StatusPesanan statusPesanan = new StatusPesanan(
-                "00001",
-                "90's Cake",
-                "5 Paket",
-                "Jalan Manunggal II No.14 Kelurahan Rambutan, Kecamatan Ciracas, Jakarta Timur",
-                "120000",
-                "DITERIMA"
-        );
-        statusPesananList.add(statusPesanan);
-
-        StatusPesanan statusPesanan1 = new StatusPesanan(
-                "00001",
-                "90's Cake",
-                "5 Paket",
-                "Jalan Manunggal II No.14 Kelurahan Rambutan, Kecamatan Ciracas, Jakarta Timur",
-                "120000",
-                "DITOLAK"
-
-        );
-        statusPesananList.add(statusPesanan1);
-
-        adapter = new StatusPesananCardAdapter(statusPesananList);
-        recyclerView.setAdapter(adapter);
-    }*/
